@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Column; // Importa la anotación Column
 
 @Entity
 public class Alumno {
@@ -25,6 +24,7 @@ public class Alumno {
     // Getters y setters
     public Long getId() {
         return id;
+
     }
 
     public void setId(Long id) {
