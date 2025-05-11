@@ -30,6 +30,19 @@ public class AlumnoController {
     public List<Alumno>TraerAlumnos(){
     return alumnoRepository.findAll();
     }
+    @GetMapping("/traer-alumno/{id}")
+
+    public ResponseEntity<Alumno> TraerUnAlumno(@PathVariable Long id) {
+    
+    return alumnoRepository.findById(id)
+    
+    .map(alumno -> ResponseEntity.ok(alumno))
+    
+    .orElse (ResponseEntity.notFound().build());
+    
+     
+
+}
 
      @PostMapping ("/insertar-alumnos")
      public Alumno insertarAlumnos (@RequestBody Alumno alumno){
@@ -62,4 +75,8 @@ public void eliminarAlumno (@PathVariable Long id) {
 alumnoRepository.deleteById(id);
 
 }     
+
+
+
+
 }    
