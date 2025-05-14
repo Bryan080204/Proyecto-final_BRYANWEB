@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
+import Swal from 'sweetalert2'; // Importar SweetAlert2
 
 const alumnos = ref([]);
 const alumnoSeleccionado = ref(null);
@@ -54,6 +55,14 @@ const agregarOEditarAlumno = async () => {
         numeroControl: ''
       };
       alumnoSeleccionado.value = null;
+      
+      // Mostrar el mensaje de éxito con SweetAlert2
+      Swal.fire({
+        icon: 'success',
+        title: 'Alumno agregado correctamente',
+        showConfirmButton: false,
+        timer: 1500
+      });
     }
   } catch (error) {
     console.error('Error al guardar el alumno:', error);
